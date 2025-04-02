@@ -1,8 +1,19 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, Routes } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { MissionListComponent } from './missionlist/missionlist.component';
+import { MissionDetailsComponent } from './missiondetails/missiondetails.component';
+import { MissionFilterComponent } from './missionfilter/missionfilter.component';
 
-import { routes } from './app.routes';
+const routes: Routes = [
+  { path: '', component: MissionListComponent },
+  { path: 'mission/:id', component: MissionDetailsComponent },
+  { path: 'filter', component: MissionFilterComponent }
+];
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient()
+  ]
 };

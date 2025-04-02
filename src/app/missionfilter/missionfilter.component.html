@@ -1,0 +1,13 @@
+<h2>Filter Missions by Year</h2>
+
+<input type="text" [(ngModel)]="selectedYear" placeholder="Enter year">
+<button (click)="filterByYear()">Filter</button>
+
+<ul>
+  <li *ngFor="let mission of filteredMissions">
+    <strong>{{ mission.mission_name }}</strong> ({{ mission.launch_year }})
+    <button [routerLink]="['/mission', mission.flight_number]">View Details</button>
+  </li>
+</ul>
+
+<button (click)="goBack()">Back</button>

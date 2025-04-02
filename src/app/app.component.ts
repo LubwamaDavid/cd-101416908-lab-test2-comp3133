@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [RouterModule, RouterOutlet]
 })
 export class AppComponent {
-  title = '101416908-lab-test2-comp3133';
+  title = 'SpaceX Launches';
 }

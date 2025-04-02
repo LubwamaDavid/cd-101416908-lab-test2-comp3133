@@ -1,0 +1,14 @@
+<h2>SpaceX Missions</h2>
+
+<ul class="mission-list">
+  <li *ngFor="let mission of missions">
+    <img [src]="mission.links.mission_patch_small" alt="Mission Patch" class="mission-patch">
+    <div class="mission-details">
+      <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
+      <p>{{ mission.details || 'No details available' }}</p>
+      <button [routerLink]="['/mission', mission.flight_number]">View Details</button>
+    </div>
+  </li>
+</ul>
+
+<button routerLink="/" class="back-button">Back</button>
